@@ -112,7 +112,6 @@ def prepareDataset():
     X_train, X_test, y_train, y_test = splitData(X_scaled, y)
     return X_train, X_test, y_train, y_test
 
-
 # entraînement des modèles
 def modelTraining(model):
      X_train, X_test, y_train, y_test = prepareDataset()
@@ -147,5 +146,5 @@ def modelTraining(model):
      plt.show()
 # Evaluate
 modelTraining(LogisticRegression(max_iter=1000))
-modelTraining(SVC(kernel='linear'))
-modelTraining(RandomForestClassifier(n_estimators=100, random_state=42))
+#modelTraining(SVC(kernel='linear'))
+#modelTraining(RandomForestClassifier(n_estimators=100, random_state=42))
