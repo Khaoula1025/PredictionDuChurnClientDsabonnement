@@ -29,7 +29,7 @@ telecom-churn-prediction/
 │
 ├── requirements.txt                # Dépendances Python
 └── README.md                       # Ce fichier
-
+```
 
 ## 🧠 Exploration des Données (EDA)
 
@@ -116,6 +116,7 @@ Le projet a été découpé en 5 jours de travail :
 **Khaoula Esioudi**
 Data Scientist Junior – Projet de prédiction du churn client
 2025
+
 
 
 
