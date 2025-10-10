@@ -1,120 +1,208 @@
-# 📊 Rapport Technique – Prédiction du Churn Client
+# 📊 Prédiction du Churn Client - Télécommunications
 
-## 📋 Description du Projet
+> Modèle d'intelligence artificielle pour identifier les clients à risque de désabonnement et optimiser les stratégies de fidélisation.
 
-Ce projet vise à développer un modèle d'intelligence artificielle pour prédire le churn (désabonnement) des clients d'une entreprise de télécommunications. Il s'agit d'un pipeline complet de Machine Learning supervisé permettant d'identifier les clients à risque de départ afin de mettre en place des campagnes de fidélisation ciblées.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![Machine Learning](https://img.shields.io/badge/ML-Scikit--learn-orange.svg)](https://scikit-learn.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
 
-## 🎯 Objectifs
+## 🎯 Objectifs du Projet
 
-* Construire un pipeline ML end-to-end pour la prédiction du churn
-* Comparer plusieurs algorithmes de classification
-* Fournir des métriques d'évaluation détaillées
-* Garantir la qualité du code avec des tests unitaires
-* Documenter le processus de sélection du modèle optimal
+Ce projet implémente un pipeline complet de Machine Learning supervisé visant à :
 
-## 🗂️ Structure du Projet
+- ✅ Prédire le churn client avec une haute précision
+- ✅ Comparer plusieurs algorithmes de classification
+- ✅ Identifier les facteurs clés influençant le désabonnement
+- ✅ Fournir des insights actionnables pour les équipes marketing
+- ✅ Garantir la qualité et la reproductibilité du code
 
-```bash
+---
+
+## 📁 Structure du Projet
+
+```
 predictionDuChurnClientDsabonnement/
 │
-├── data.csv                        # Dataset des clients
-│
-├── analyzeAndPrepareData.ipynb     # Exploration et analyses visuelles
-│
-├── pipeline.py                     # Pipeline de préparation et modélisation
-│
-├── test_pipeline.py                # Tests unitaires
-│
-├── requirements.txt                # Dépendances Python
-└── README.md                       # Ce fichier
+├── 📄 data.csv                      # Dataset des clients
+├── 📓 analyzeAndPrepareData.ipynb   # Analyse exploratoire (EDA)
+├── 🐍 pipeline.py                   # Pipeline ML complet
+├── 🧪 test_pipeline.py              # Tests unitaires
+├── 📋 requirements.txt              # Dépendances Python
+└── 📖 README.md                     # Documentation
 ```
 
-## 🧠 Exploration des Données (EDA)
+---
 
-L’analyse exploratoire a permis d’identifier :
+## 🚀 Installation & Configuration
 
-* **Problèmes détectés** :
+### Prérequis
 
-  * Type de données incorrect — la colonne TotalCharges est enregistrée comme objet (chaîne de caractères) alors qu’elle contient en réalité des valeurs numériques.
-  * Variables catégorielles nécessitant encodage (`gender`, `InternetService`, etc.)
-* **Déséquilibre de classes** : proportion de churners environ 26%.
+- Python 3.8 ou supérieur
+- pip ou conda
 
-Des visualisations ont été produites :
+### Installation
 
-* Distribution du churn par type de contrat
-* Corrélation entre variables numériques
+```bash
+# 1. Cloner le dépôt
+git clone https://github.com/Khaoula1025/PredictionDuChurnClientDsabonnement
+cd telecom-churn-prediction
+
+# 2. Créer un environnement virtuel
+python -m venv venv
+
+# 3. Activer l'environnement
+# Sur Linux/Mac :
+source venv/bin/activate
+# Sur Windows :
+venv\Scripts\activate
+
+# 4. Installer les dépendances
+pip install -r requirements.txt
+```
 
 ---
 
-## ⚙️ Pipeline de Préparation (pipeline.py)
+## 💻 Utilisation
 
-### Étapes principales :
+### Analyse Exploratoire des Données
 
-1. **Nettoyage des données** : suppression des doublons et traitement des valeurs manquantes
-2. **Encodage** : utilisation de `OneHotEncoder` pour les variables catégorielles
-3. **Normalisation** : `StandardScaler` sur les variables numériques
-4. **Split des données** : `train_test_split` avec `test_size=0.2`, `random_state=42`
+```bash
+jupyter notebook analyzeAndPrepareData.ipynb
+```
 
----
+### Exécution du Pipeline Complet
 
-## 🤖 Modélisation
+```bash
+python pipeline.py
+```
 
-Deux modèles ont été testés :
+### Lancement des Tests
 
-| Modèle                  | 
-| ----------------------- | 
-| **Logistic Regression** |            
-| **Random Forest**       |
-
----
-
-## 📈 Évaluation et Résultats
-
-Les performances ont été évaluées à l’aide des métriques suivantes :
-
-* **Accuracy**
-* **Recall** (priorité : minimiser les faux négatifs)
-* **F1-score**
-* **Courbe ROC**
-
-| Modèle              | Accuracy | Recall   | F1-score | precision|    AUC   |
-| ------------------- | -------- | -------- | -------- | -------- | -------- |
-| Logistic Regression |    0.80  |   0.56   | 0.60     | 0.66     |   0.84   |   
-| **Random Forest**   |    0.79  |   0.51   | 0.56     | 0.62     |   0.82   |
-
-**Conclusion :** Le modèle Logistic Regression offre le meilleur équilibre entre rappel et performance globale
+```bash
+pytest test_pipeline.py
+```
 
 ---
 
-## 🧪 Tests Unitaires (test_pipeline.py)
+## 🔍 Analyse Exploratoire des Données (EDA)
 
+### Problèmes Identifiés
+
+| Problème | Solution Appliquée |
+|----------|-------------------|
+| **Type de données incorrect** | Conversion de `TotalCharges` en type numérique |
+| **Variables catégorielles** | Encodage via `OneHotEncoder` |
+| **Déséquilibre des classes** | Churn : ~26% (à surveiller) |
+| **Valeurs manquantes** | Imputation ou suppression selon le contexte |
+
+
+---
+
+## ⚙️ Pipeline de Traitement des Données
+
+Le pipeline automatise les étapes suivantes :
+
+```
+1. Nettoyage       → Suppression des doublons et valeurs aberrantes
+2. Traitement      → Gestion des valeurs manquantes
+3. Encodage        → OneHotEncoder pour variables catégorielles
+4. Normalisation   → StandardScaler pour variables numériques
+5. Séparation      → Train/Test split (80/20, random_state=42)
+```
+
+---
+
+## 🤖 Modèles Implémentés
+
+Deux algorithmes de classification ont été comparés :
+
+### 1. **Logistic Regression**
+- Modèle linéaire interprétable
+- Rapide à entraîner
+- Adapté aux relations linéaires
+
+### 2. **Random Forest**
+- Modèle ensembliste non-linéaire
+- Capture les interactions complexes
+- Robuste au surapprentissage
+
+---
+
+## 📊 Résultats et Performance
+
+### Métriques de Comparaison
+
+| Modèle | Accuracy | Precision | Recall | F1-Score | AUC |
+|--------|----------|-----------|--------|----------|-----|
+| **Logistic Regression** ⭐ | **0.80** | **0.66** | **0.56** | **0.60** | **0.84** |
+| Random Forest | 0.79 | 0.62 | 0.51 | 0.56 | 0.82 |
+
+### 🏆 Modèle Sélectionné : **Logistic Regression**
+
+**Justification :**
+- ✅ Meilleur équilibre entre toutes les métriques
+- ✅ Recall supérieur (crucial pour minimiser les faux négatifs)
+- ✅ AUC plus élevée (meilleure discrimination)
+- ✅ Plus interprétable pour l'équipe métier
+
+### Métriques Prioritaires
+
+- **Recall (0.56)** : Capture 56% des clients à risque réel
+- **AUC (0.84)** : Excellente capacité de discrimination
+- **F1-Score (0.60)** : Bon compromis précision/rappel
+
+---
+
+## 🧪 Tests et Validation
 Un test automatisé été mis en place pour garantir la fiabilité du pipeline :
 
-* Vérification des dimensions cohérentes entre `X` et `y` après split .
+Vérification des dimensions cohérentes entre X et y après split .
+
+### Exécution des Tests
+
+```bash
+pytest test_pipeline.py -v
+```
 
 ---
 
-## 📅 Gestion du Projet (via Jira)
+## 📅 Planning du Projet
 
-Le projet a été découpé en 5 jours de travail :
+| Jour | Phase | Livrables |
+|------|-------|-----------|
+| **J1** | 🔍 Exploration | Analyse EDA, visualisations |
+| **J2** | 🛠️ Préparation | Pipeline de nettoyage et preprocessing |
+| **J3** | 🤖 Modélisation | Entraînement des modèles |
+| **J4** | 📊 Évaluation | Métriques, comparaisons, sélection |
+| **J5** | 📝 Documentation | README, tests, rapport final |
 
-| Jour | Tâche principale        | Détails                                |
-| ---- | ----------------------- | -------------------------------------- |
-| 1    | EDA                     | Analyse et visualisation des données   |
-| 2    | Préparation des données | Nettoyage, encodage, normalisation     |
-| 3    | Modélisation            | Entraînement des 3 modèles             |
-| 4    | Évaluation              | Comparaison, métriques, visualisations |
-| 5    | Rapport final           | Rédaction du README, tests unitaires   |
+**Gestion de projet** : Suivi via Jira avec méthodologie Agile
 
 ---
+
+## 🛠️ Technologies Utilisées
+
+- **Python 3.8+** - Langage principal
+- **Pandas** - Manipulation de données
+- **NumPy** - Calcul numérique
+- **Scikit-learn** - Machine Learning
+- **Matplotlib/Seaborn** - Visualisations
+- **Jupyter Notebook** - Analyse interactive
+- **Pytest** - Tests unitaires
+
+---
+
 
 ## 👤 Auteur
 
-**Khaoula Esioudi**
-Data Scientist Junior – Projet de prédiction du churn client
-2025
+**Khaoula Esioudi**  
+*Data Scientist Junior*
+
+
+
+</div>
 
 
 
