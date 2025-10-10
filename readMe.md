@@ -17,7 +17,7 @@ Ce projet vise à développer un modèle d'intelligence artificielle pour prédi
 ## 🗂️ Structure du Projet
 
 ```bash
-telecom-churn-prediction/
+predictionDuChurnClientDsabonnement/
 │
 ├── data.csv                        # Dataset des clients
 │
@@ -82,7 +82,6 @@ Les performances ont été évaluées à l’aide des métriques suivantes :
 | Modèle              | Accuracy | Recall   | F1-score | precision|    AUC   |
 | ------------------- | -------- | -------- | -------- | -------- | -------- |
 | Logistic Regression |    0.80  |   0.56   | 0.60     | 0.66     |   0.84   |   
-|---------------------| -------- | -------- | -------- | -------- | -------- |
 | **Random Forest**   |    0.79  |   0.51   | 0.56     | 0.62     |   0.82   |
 
 **Conclusion :** Le modèle Logistic Regression offre le meilleur équilibre entre rappel et performance globale
@@ -116,6 +115,7 @@ Le projet a été découpé en 5 jours de travail :
 **Khaoula Esioudi**
 Data Scientist Junior – Projet de prédiction du churn client
 2025
+
 
 
 
