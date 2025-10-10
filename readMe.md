@@ -16,19 +16,20 @@ Ce projet vise à développer un modèle d'intelligence artificielle pour prédi
 
 ## 🗂️ Structure du Projet
 
+```bash
 telecom-churn-prediction/
 │
-├──── data.csv                        # Dataset des clients
+├── data.csv                        # Dataset des clients
 │
-├── analyzeAndPrepareData.ipynb       # Exploration et analyses visuelles
+├── analyzeAndPrepareData.ipynb     # Exploration et analyses visuelles
 │
-│── pipeline.py                       # Pipeline de préparation et modélisation
-|
-|── test_pipeline.py                  # Tests unitaires
+├── pipeline.py                     # Pipeline de préparation et modélisation
 │
-├── requirements.txt                  # Dépendances Python
-└── README.md                         # Ce fichier
----
+├── test_pipeline.py                # Tests unitaires
+│
+├── requirements.txt                # Dépendances Python
+└── README.md                       # Ce fichier
+
 
 ## 🧠 Exploration des Données (EDA)
 
@@ -115,6 +116,7 @@ Le projet a été découpé en 5 jours de travail :
 **Khaoula Esioudi**
 Data Scientist Junior – Projet de prédiction du churn client
 2025
+
 
 
 
